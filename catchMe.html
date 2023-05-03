@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ched Trah</title>
+    <style>
+        #pic{
+            position:absolute;
+            left: 0;
+            top: 0;
+            border-radius: 30%;
+            width:90px;
+            height:85px;
+        }
+        @font-face {
+            font-family: 'Merchant Copy';
+            src: url('C:\\Users\\youss\\Downloads\\transfonter.org-20230502-153805\\MerchantCopy.woff2') format('woff2'),
+                url('C:\\Users\\youss\\Downloads\\transfonter.org-20230502-153805\\MerchantCopy.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        #container{
+            display: flex;
+        }
+        #field{
+            width: 100%;
+            height: 675px;
+            background-color: black;
+        }
+        body{
+            margin:0px;
+        }
+        
+        #box{
+            align-content: center;
+            background-color: bisque;
+            width: 100%;
+            height: 125px;
+            position: absolute;
+            bottom: 0%;
+            
+            text-align: center;
+        }
+        #response{
+            font-family: 'Merchant Copy';
+            font-size:25px;
+            margin-top: 60px;
+        }
+    </style>
+    <script src="jquery-3.6.4.js"></script>
+    
+
+    <script>
+        $(document).ready(function(){
+            // Get the img and its containing div element by their respective IDs
+            const img = document.getElementById('pic');
+            const container = document.getElementById('field');
+
+            // Add a mouseover event listener to the img element
+            $("#pic").hover( function(event) {
+                // Get the current position of the img element within its containing div
+                const imgRect = img.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+                
+                // Calculate a random x and y offset within the containing div
+                const x = Math.floor(Math.random() * (containerRect.width - imgRect.width));
+                const y = Math.floor(Math.random() * (containerRect.height - imgRect.height));
+
+                // Set the new position of the img element using CSS transform property
+                img.style.transform = `translate(${x}px, ${y}px)`;
+                img.style.transitionDuration = "1s";
+          img.style.transitionTimingFunction = "linear";
+            });
+                let responses = ["Your fucking weak","What color is your Bugatti ?","You can't catch me biiiiiitch",
+            "My mangolian cosin can do better","HAHAHAHAHAHHAHA","ALLAHU AKBAR","Do some fucking push ups than come back dipshit",
+            "Your worse than a woman","I bet your not very good at sex either","Fucking retard","C'MOOOOOON GRANDPAAA","Is this all you got ?"
+            ,"Get oughta here faggot!","Eat shit HAHAHAHAHA","OMG GRETTA are you crying???","Do You identify as a stupid ?"
+            ,"What's wrong you fooocking TWATT"]
+            
+                $('#response').html("Click on me if you can");
+                $("#field").click(function(){
+                    $('#response').html(responses[Math.floor(Math.random()*responses.length)]);
+                })
+                
+        });
+        
+    </script>
+</head>
+<body>
+    <div id="field" >
+        <img src="image_2023-05-02_174115166-removebg-preview.png"  id="pic" />
+    </div>
+    
+    <div id="container">
+        <div id="box">
+            <p id="response"></p>
+        </div>
+    </div>
+</body>
+</html>
